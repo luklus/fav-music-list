@@ -1,0 +1,16 @@
+{
+  "albums": {
+    "addAlbum": "Add album",
+    "addNewAlbum": "Add new album",
+    "albumTitleRequired": "Title is required",
+    "title": "Title"
+  },
+  "apps": {
+    "date": "Date",
+    "id": "ID",
+    "notFound": "Sorry, page not found",
+    "returnHome": "Back to home page",
+    "sortedBy": "Sort by",
+    "title": "Title"
+  }
+}

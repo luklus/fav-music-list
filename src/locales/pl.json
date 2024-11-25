@@ -1,0 +1,16 @@
+{
+  "albums": {
+    "addAlbum": "Dodaj album",
+    "addNewAlbum": "Dodaj nowy album",
+    "albumTitleRequired": "Tytuł jest wymagany",
+    "title": "Tytuł"
+  },
+  "apps": {
+    "date": "Data",
+    "id": "ID",
+    "notFound": "Przepraszamy, strona nie została znaleziona",
+    "returnHome": "Powrót na stronę główną",
+    "sortedBy": "Sortuj po",
+    "title": "Tytuł"
+  }
+}

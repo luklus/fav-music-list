@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import AddAlbum from '@/components/album/AddAlbum.vue'
-import AlbumList from '@/components/album/AlbumList.vue'
+import AddAlbum from '@/components/albums/AddAlbum.vue'
+import AlbumList from '@/components/albums/AlbumList.vue'
 import AppGrid from '@/components/apps/AppGrid.vue'
 import AppSort from '@/components/apps/AppSort.vue'
 </script>

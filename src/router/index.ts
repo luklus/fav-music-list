@@ -10,7 +10,7 @@ const router = createRouter({
       component: AlbumsView,
     },
     {
-      path: '/:pathMatch(.*)*',
+      path: '/:catchAll(.*)*',
       name: 'not-found',
       component: () => import('@/router/views/NotFoundView.vue'),
     },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AlbumCard from '@/components/album/AlbumCard.vue'
+import AlbumCard from '@/components/albums/AlbumCard.vue'
 
 import { useAlbum } from '@/composables/useAlbum'
 import { useGrid } from '@/composables/useGrid'

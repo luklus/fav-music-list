@@ -1,44 +1,49 @@
 <script setup lang="ts">
 import { useAlbum } from '@/composables/useAlbum'
 import { v4 as uuid } from 'uuid'
-import { ref } from 'vue'
+import { useForm } from 'vee-validate'
 import { useI18n } from 'vue-i18n'
+import * as yup from 'yup'
+
+const emits = defineEmits(['addAlbumFormSubmitted'])
 
 const { t } = useI18n()
 const { addAlbum } = useAlbum()
 
-const emits = defineEmits(['addAlbumFormSubmitted'])
-const title = ref('')
-const titleError = ref(false)
+const schema = yup.object({
+  title: yup.string().required(),
+})
 
-const onAlbumSubmit = () => {
-  if (!title.value) {
-    titleError.value = true
-    return
-  }
+const { defineField, errors, handleSubmit, resetForm } = useForm({
+  validationSchema: schema,
+})
+const [title, titleAttrs] = defineField('title')
 
+const onAlbumSubmit = handleSubmit(async (values) => {
   addAlbum({
     createdAt: new Date(),
     favourite: false,
     id: uuid(),
-    title: title.value,
+    title: values.title,
   })
 
+  resetForm()
   emits('addAlbumFormSubmitted')
-}
+})
 </script>
 
 <template>
   <form @submit.prevent="onAlbumSubmit">
     <div class="my-8 flex flex-col">
       <input
-        :class="titleError ? 'border-red-400' : 'border-gray-400'"
+        :class="errors.title ? 'border-red-400' : 'border-gray-400'"
         :placeholder="t('albums.title')"
         class="border p-2"
         type="text"
         v-model.trim="title"
+        v-bind="titleAttrs"
       />
-      <span class="text-red-500" v-if="titleError">
+      <span class="text-red-500" v-if="errors.title">
         {{ t('albums.albumTitleRequired') }}
       </span>
     </div>
